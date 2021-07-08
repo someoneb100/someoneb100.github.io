@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Enigma";
-    src: url('fonts/EnigmaU_2.TTF') format('truetype');
+    src: url('../fonts/EnigmaU_2.TTF') format('truetype');
 }
 
 body {
@@ -31,8 +31,9 @@ header {
 
 #header-name {
     background-color: orange;
-    font-family: Enigma;
+    font-family: "Enigma";
     font-size: 3em;
+    padding-top: 0.35em;
     width: 25%;
     color: darkgreen;
 }
