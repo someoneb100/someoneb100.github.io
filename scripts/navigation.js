@@ -5,6 +5,10 @@ var items = [{name : "home", description : "Bio"}
 var tabs = items.map(item => item.name);
 var currentTab = tabs[0];
 
+function findDescription(itemName) {
+    return items.find(item => item.name == itemName).description
+}
+
 function createInfo() {
     var info = document.createElement('div');
     info.className = 'background-mangenta';

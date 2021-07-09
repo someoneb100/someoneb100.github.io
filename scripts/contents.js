@@ -20,6 +20,8 @@ function changeTab(newItem) {
         currentTab = getTab(newItem);
         $('#section-' + currentTab).slideToggle();
     }
+    $('title').empty();
+    $('title').append(document.createTextNode(`Petar Đorđević - ${findDescription(currentTab)}`));
 }
 
 function createArticle(tab) {
@@ -58,7 +60,6 @@ function createProjects() {
     var section = createSection();
     section.id = 'section-database';
     section.appendChild(document.createTextNode('Some projects I worked on:'));
-    section.appendChild(document.createElement('br'));
 
     var projects = [
         {tag: 'RS', text: 'Logic Circuit Simulator', href: 'https://gitlab.com/matf-bg-ac-rs/course-rs/projects-2020-2021/21-logic-circuit-simulator'},
