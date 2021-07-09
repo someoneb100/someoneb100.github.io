@@ -59,7 +59,9 @@ function createBio() {
 function createProjects() {
     var section = createSection();
     section.id = 'section-database';
-    section.appendChild(document.createTextNode('Some projects I worked on:'));
+    var projectList = document.createElement('ul');
+    projectList.id = 'project-list';
+    projectList.appendChild(document.createTextNode('Some projects I worked on:'));
 
     var projects = [
         {tag: 'RS', text: 'Logic Circuit Simulator', href: 'https://gitlab.com/matf-bg-ac-rs/course-rs/projects-2020-2021/21-logic-circuit-simulator'},
@@ -69,15 +71,17 @@ function createProjects() {
     ];
 
     projects.forEach(item => {
+        var container = document.createElement('li');
+        container.className = 'project text-white'
         var link = document.createElement('a');
-        link.className = "project text-white"
+        link.className = 'project text-white'
         link.href = item.href;
         link.appendChild(document.createTextNode(`[${item.tag}] ${item.text}`));
-        var container = document.createElement('div');
         container.appendChild(link);
-        section.appendChild(container);
+        projectList.appendChild(container);
     });
 
+    section.appendChild(projectList)
     return section;
 }
 

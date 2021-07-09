@@ -20,8 +20,17 @@ section {
     border-radius: 0.25em;
 }
 
+#project-list {
+    text-align: left;
+}
+
 .project {
     text-decoration: none;
+    list-style: none;
+}
+
+li.project::before {
+    content: "\00BB";
 }
 
 
