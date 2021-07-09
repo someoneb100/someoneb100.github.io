@@ -12,6 +12,7 @@ function findDescription(itemName) {
 function createInfo() {
     var info = document.createElement('div');
     info.className = 'background-mangenta';
+    info.id = 'navigation-container'
     
     info.appendChild(createHeader());
     info.appendChild(createNav());
