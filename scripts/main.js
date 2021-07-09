@@ -4,31 +4,20 @@ $(document).ready(function(){
 
     body.appendChild(createContents());
     $('section').hide();
-    makeVisible(currentTab);
+    changeTab();
 
     $('.navigation-icon').click(function(){
-        makeHidden(currentTab);
-        var name = this.id;
-        currentTab = name.substring(name.indexOf('-') + 1);
-        makeVisible(currentTab);
+        changeTab(this);
     });
 
+    $('.project').hover(function()
+    {
+        $(this).removeClass('text-white');
+        $(this).addClass('text-mangenta');
+    },
+    function()
+    {
+        $(this).removeClass('text-mangenta');
+        $(this).addClass('text-white');
+    });
 });
-
-function createContents() {
-    var contents = document.createElement('div');
-    contents.id = 'contents';
-
-    contents.appendChild(createArticle(currentTab));
-    contents.appendChild(createAside());
-    return contents;
-}
-
-function createInfo() {
-    var info = document.createElement('div');
-    info.className = 'background-mangenta';
-    
-    info.appendChild(createHeader());
-    info.appendChild(createNav());
-    return info
-}

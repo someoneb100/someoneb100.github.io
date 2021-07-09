@@ -5,6 +5,20 @@ var items = [{name : "home", description : "Bio"}
 var tabs = items.map(item => item.name);
 var currentTab = tabs[0];
 
+function createInfo() {
+    var info = document.createElement('div');
+    info.className = 'background-mangenta';
+    
+    info.appendChild(createHeader());
+    info.appendChild(createNav());
+    return info
+}
+
+function getTab(elem){
+    var name = elem.id;
+    return name.substring(name.indexOf('-') + 1);
+}
+
 function createHeader() {
     var nameField = document.createElement('header');
     nameField.className = 'navigation-item background-blue text-mangenta';

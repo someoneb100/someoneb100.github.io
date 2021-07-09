@@ -13,6 +13,17 @@ article {
     margin-top: 5%;
 }
 
+section {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 5%;
+    font-size: 1.5em;
+    border-radius: 0.25em;
+}
+
+.project {
+    text-decoration: none;
+}
+
 
 aside {
     box-sizing: border-box;

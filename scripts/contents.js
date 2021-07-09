@@ -1,3 +1,27 @@
+function createContents() {
+    var contents = document.createElement('div');
+    contents.id = 'contents';
+
+    contents.appendChild(createArticle(currentTab));
+    contents.appendChild(createAside());
+    return contents;
+}
+
+function changeTab(newItem) {
+    if(newItem == undefined){
+        $('#section-' + currentTab).show()
+    }
+    else{
+        var name = getTab(newItem);
+        if(name == currentTab){
+            return;
+        }
+        $('#section-' + currentTab).slideToggle();
+        currentTab = getTab(newItem);
+        $('#section-' + currentTab).slideToggle();
+    }
+}
+
 function createArticle(tab) {
     var article = document.createElement('article');
 
@@ -16,8 +40,14 @@ function makeHidden(name){
     $('#section-' + name).hide();
 }
 
-function createBio() {
+function createSection() {
     var section = document.createElement('section');
+    section.className = "background-blue text-white";
+    return section;
+}
+
+function createBio() {
+    var section = createSection();
     section.id = 'section-home';
     section.appendChild(document.createTextNode('Test Bio'));
 
@@ -25,15 +55,33 @@ function createBio() {
 }
 
 function createProjects() {
-    var section = document.createElement('section');
+    var section = createSection();
     section.id = 'section-database';
-    section.appendChild(document.createTextNode('Test Projects'));
+    section.appendChild(document.createTextNode('Some projects I worked on:'));
+    section.appendChild(document.createElement('br'));
+
+    var projects = [
+        {tag: 'RS', text: 'Logic Circuit Simulator', href: 'https://gitlab.com/matf-bg-ac-rs/course-rs/projects-2020-2021/21-logic-circuit-simulator'},
+        {tag: 'PP', text: 'LeGit', href: 'https://github.com/matf-pp/2021_Matf-Git'},
+        {tag: 'KK', text: 'LLVM-OPT tool for finding pure functions', href: 'https://github.com/someoneb100/KK-seminarski-opt-prolazi'},
+        {tag: 'PPGR', text: 'Panorama generator and Projective Distortion fixer (and more)', href: 'https://github.com/someoneb100/PPGR_Projektivna_distorzija'}
+    ];
+
+    projects.forEach(item => {
+        var link = document.createElement('a');
+        link.className = "project text-white"
+        link.href = item.href;
+        link.appendChild(document.createTextNode(`[${item.tag}] ${item.text}`));
+        var container = document.createElement('div');
+        container.appendChild(link);
+        section.appendChild(container);
+    });
 
     return section;
 }
 
 function createContacts() {
-    var section = document.createElement('section');
+    var section = createSection();
     section.id = 'section-mail';
     section.appendChild(document.createTextNode('Test Contacts'));
 
