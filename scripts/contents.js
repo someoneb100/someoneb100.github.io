@@ -9,16 +9,16 @@ function createArticle(tab) {
 }
 
 function makeVisible(name){
-    $('#' + name + '-section').show();
+    $('#section-' + name).show();
 }
 
 function makeHidden(name){
-    $('#' + name + '-section').hide();
+    $('#section-' + name).hide();
 }
 
 function createBio() {
     var section = document.createElement('section');
-    section.id = 'navigation-home-section';
+    section.id = 'section-home';
     section.appendChild(document.createTextNode('Test Bio'));
 
     return section;
@@ -26,7 +26,7 @@ function createBio() {
 
 function createProjects() {
     var section = document.createElement('section');
-    section.id = 'navigation-database-section';
+    section.id = 'section-database';
     section.appendChild(document.createTextNode('Test Projects'));
 
     return section;
@@ -34,7 +34,7 @@ function createProjects() {
 
 function createContacts() {
     var section = document.createElement('section');
-    section.id = 'navigation-mail-section';
+    section.id = 'section-mail';
     section.appendChild(document.createTextNode('Test Contacts'));
 
     return section;

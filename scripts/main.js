@@ -1,11 +1,6 @@
-var currentTab = null;
-var tabs = null;
-
 $(document).ready(function(){
     var body = $('body')[0];
     body.appendChild(createInfo());
-    tabs = Array.prototype.slice.call($('nav')[0].childNodes).map(item => item.childNodes[0].id);
-    currentTab = tabs[0];
 
     body.appendChild(createContents());
     $('section').hide();
@@ -13,7 +8,8 @@ $(document).ready(function(){
 
     $('.navigation-icon').click(function(){
         makeHidden(currentTab);
-        currentTab = this.id;
+        var name = this.id;
+        currentTab = name.substring(name.indexOf('-') + 1);
         makeVisible(currentTab);
     });
 

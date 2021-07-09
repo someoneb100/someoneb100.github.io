@@ -2,6 +2,9 @@ var items = [{name : "home", description : "Bio"}
             ,{name : "database", description : "Projects"}
             ,{name : "mail", description : "Contacts"}];
 
+var tabs = items.map(item => item.name);
+var currentTab = tabs[0];
+
 function createHeader() {
     var nameField = document.createElement('header');
     nameField.className = 'navigation-item background-blue text-mangenta';
